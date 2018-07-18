@@ -164,7 +164,7 @@ Explanation for each field:
 "coinUnits": 100000000,
 
 /* Number of coin decimals places for notifications and front-end */
-"coinDecimalPlaces": 4,
+"coinDecimalPlaces": 8,
   
 /* Coin network time to mine one block, see DIFFICULTY_TARGET constant in DAEMON_CODE/src/cryptonote_config.h */
 "coinDifficultyTarget": 90,
@@ -211,7 +211,7 @@ Explanation for each field:
     "poolAddress": "btc2address",
 
     /* This is the integrated address prefix used for miner login validation. */
-    "intAddressPrefix": 91,
+    "intAddressPrefix": 841588,
 
     /* Poll RPC daemons for new blocks every this many milliseconds. */
     "blockRefreshInterval": 1000,
@@ -226,33 +226,28 @@ Explanation for each field:
     "ports": [
         {
             "port": 3333, // Port for mining apps to connect to
-            "difficulty": 2000, // Initial difficulty miners are set to
+            "difficulty": 3000, // Initial difficulty miners are set to
             "desc": "Low end hardware" // Description of port
         },
         {
             "port": 4444,
-            "difficulty": 15000,
+            "difficulty": 40000,
             "desc": "Mid range hardware"
         },
         {
             "port": 5555,
-            "difficulty": 25000,
+            "difficulty": 50000,
             "desc": "High end hardware"
         },
         {
-            "port": 7777,
-            "difficulty": 500000,
+            "port": 6666,
+            "difficulty": 600000,
             "desc": "Cloud-mining / NiceHash"
         },
+
         {
-            "port": 8888,
-            "difficulty": 25000,
-            "desc": "Hidden port",
-            "hidden": true // Hide this port in the front-end
-        },
-        {
-            "port": 9999,
-            "difficulty": 20000,
+            "port": 7777,
+            "difficulty": 40000,
             "desc": "SSL connection",
             "ssl": true // Enable SSL
         }
@@ -262,7 +257,7 @@ Explanation for each field:
        individual miners based on their hashrate in order to lower networking and CPU
        overhead. */
     "varDiff": {
-        "minDiff": 100, // Minimum difficulty
+        "minDiff": 2000, // Minimum difficulty
         "maxDiff": 100000000,
         "targetTime": 60, // Try to get 1 share per this many seconds
         "retargetTime": 30, // Check to see if we should retarget every this many seconds
@@ -294,7 +289,7 @@ Explanation for each field:
     /* If under low-diff share attack we can ban their IP to reduce system/network load. */
     "banning": {
         "enabled": true,
-        "time": 600, // How many seconds to ban worker for
+        "time": 300, // How many seconds to ban worker for
         "invalidPercent": 25, // What percent of invalid shares triggers ban
         "checkThreshold": 30 // Perform check when this many shares have been submitted
     },
@@ -316,11 +311,11 @@ Explanation for each field:
     "maxAddresses": 50, // Split up payments if sending to more than this many addresses
     "mixin": 1, // Number of transactions yours is indistinguishable from
     "priority": 0, // The transaction priority    
-    "transferFee": 100, // Fee to pay for each transaction
+    "transferFee": 1000000, // Fee to pay for each transaction
     "dynamicTransferFee": true, // Enable dynamic transfer fee (fee is multiplied by number of miners)
     "minerPayFee" : true, // Miner pays the transfer fee instead of pool owner when using dynamic transfer fee
-    "minPayment": 100000000, // Miner balance required before sending payment
-    "maxTransactionAmount": 0, // Split transactions by this amount (to prevent "too big transaction" error)
+    "minPayment": 10000000000, // Miner balance required before sending payment
+    "maxTransactionAmount": 10000000000000, // Split transactions by this amount (to prevent "too big transaction" error)
     "denomination": 100000000 // Truncate to this precision and store remainder
 },
 
@@ -334,27 +329,23 @@ Explanation for each field:
     /* Block depth required for a block to unlocked/mature. Found in daemon source as
        the variable CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW */
     "depth": 60,
-    "poolFee": 0.8, // 0.8% pool fee (1% total fee total including donations)
-    "devDonation": 0.0, // 0.2% donation to send to pool dev
-    "networkFee": 0.0, // Network/Governance fee (used by some coins like Loki)
-    
-    /* Some forknote coins have an issue with block height in RPC request, to fix you can enable this option.
-       See: https://github.com/forknote/forknote-pool/issues/48 */
-    "fixBlockHeightRPC": false
+    "poolFee": 0.5, // 0.5% pool fee (1% total fee total including donations)
+    "devDonation": 0.0, 
+    "networkFee": 0.0, 
 },
 
 /* AJAX API used for front-end website. */
 "api": {
     "enabled": true,
-    "hashrateWindow": 600, // How many second worth of shares used to estimate hash rate
-    "updateInterval": 3, // Gather stats and broadcast every this many seconds
+    "hashrateWindow": 8100, // How many second worth of shares used to estimate hash rate
+    "updateInterval": 5, // Gather stats and broadcast every this many seconds
     "bindIp": "0.0.0.0", // Bind API to a specific IP (set to 0.0.0.0 for all)
     "port": 8117, // The API port
-    "blocks": 30, // Amount of blocks to send at a time
-    "payments": 30, // Amount of payments to send at a time
+    "blocks": 45, // Amount of blocks to send at a time
+    "payments": 45, // Amount of payments to send at a time
     "password": "your_password", // Password required for admin stats
     "ssl": false, // Enable SSL API
-    "sslPort": 8119, // The SSL port
+    "sslPort": 8118, // The SSL port
     "sslCert": "./cert.pem", // The SSL certificate
     "sslKey": "./privkey.pem", // The SSL private key
     "sslCA": "./chain.pem", // The SSL certificate authority chain
