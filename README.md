@@ -1,3 +1,11 @@
+<p align="center">
+<img width="600" height="120" src="http://cdn.bitcoin2.network/logos/b2n-logo-lg.png">
+</p>
+
+
+
+
+
 cryptonote-nodejs-pool
 ======================
 
