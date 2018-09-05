@@ -1,5 +1,5 @@
 <p align="center">
-<img width="600" height="120" src="http://cdn.bitcoin2.network/logos/b2n-logo-lg.png">
+<img width="450" height="90" src="http://cdn.bitcoin2.network/logos/b2n-logo-lg.png">
 </p>
 
 
